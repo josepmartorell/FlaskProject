@@ -3,12 +3,37 @@
 {% block content %}
 
 <div class="container">
-    <h4>your notebook is empty. Click the create note button to create notes.</h4>
-    <div class="position-relative">
-      <div class="position-absolute top-50 start-50">
-              <button type="button" class="btn btn-secondary btn-sm">Create Note</button>
+     {% if notes %}
+      <div class="panel panel-default index__header">
+        <h3 class="panel-body">
+          Your Notes
+        </h3>
+
+        {% for note in notes %}
+
+      <!-- Displayed Panel-->
+      <div class="panel panel-default">
+        <a href = "/note/{{note.id}}/detail/"  class="index__list-item-link">
+          <div class="panel-body">
+            {{note.subject}}
+          </div>
+        </a>
       </div>
+
+
+        {% endfor %}
+      </div>
+
+     {% else %}
+    <div class="position-relative">
+          <div class="position-absolute bottom-0 start-0">
+              <h5>your notebook is empty. Click the create note button to create notes.</h5>
+          </div>
+          <div class="position-absolute top-0 end-0">
+              <button type="button" class="btn btn-secondary btn-sm">Create Note</button>
+          </div>
     </div>
+    {% endif %}
 </div>
 
 {% endblock %}
