@@ -1,0 +1,15 @@
+.card a:hover {
+   background-color: grey;
+   color: white;
+}
+
+
+.index__list-item-link {
+    color: black;
+}
+
+
+.index__card-body {
+    margin: 20px;
+}
+

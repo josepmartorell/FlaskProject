@@ -12,28 +12,27 @@
         {% for note in notes %}
 
       <!-- Displayed Panel-->
-      <div class="panel panel-default">
+      <div class="card">
         <a href = "/note/{{note.id}}/detail/"  class="index__list-item-link">
-          <div class="panel-body">
+          <div class="index__card-body">
             {{note.subject}}
           </div>
         </a>
       </div>
 
-
         {% endfor %}
       </div>
 
      {% else %}
-    <div class="position-relative">
+     <div class="position-relative">
           <div class="position-absolute bottom-0 start-0">
               <h5>your notebook is empty. Click the create note button to create notes.</h5>
           </div>
-          <div class="position-absolute top-0 end-0">
-              <button type="button" class="btn btn-secondary btn-sm">Create Note</button>
-          </div>
-    </div>
     {% endif %}
+        <div class="index__new-note-button-wrapper" align="right" style="margin-top: 20px;">
+            <a href="{{ url_for('create_note') }}"><button type="button" class="btn btn-secondary btn-sm">Create Note</button></a>
+        </div>
+         </div>
+    </div>
 </div>
-
 {% endblock %}

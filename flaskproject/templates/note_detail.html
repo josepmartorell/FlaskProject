@@ -1,0 +1,38 @@
+{% block content %}
+
+    <div>
+        {{note.subject}}
+    </div>
+
+          <span class="note-detail__created-date-key">
+            Created On:
+          </span>
+          <span class="note-detail__created-date-value">
+            {{note.created_date}}
+          </span>
+          <span class="note-detail__modified-date-key">
+            Last Modified On:
+          </span>
+          <span class="note-detail__modified-date-value">
+            {{note.last_modified}}
+          </span>
+
+      <hr/>
+      <div>
+        {{note.detail}}
+      </div>
+
+          <a class="note-detail__button" href="{{ url_for('entry_point') }}">
+            Back to List
+          </a>
+  
+          <a class="note-detail__button" href="/note/{{note.id}}/edit/">
+            Edit Note
+          </a>
+
+          <a class="note-detail__button" href="/note/{{note.id}}/delete/">
+            Delete Note
+          </a>
+
+
+{% endblock %}
