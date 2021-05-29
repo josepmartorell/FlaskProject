@@ -11,7 +11,7 @@ from flaskproject import db
 
 @app.route('/')
 @app.route('/home')
-def home():
+def entry_point():
     """Renders the home page."""
     notes = Note.query.filter_by(is_deleted=False).all()
     return render_template(
@@ -30,7 +30,7 @@ def create_note():
             note = Note(form.subject.data, form.detail.data)
             db.session.add(note)
             db.session.commit()
-            return redirect(url_for('home'))
+            return redirect(url_for('entry_point'))
     else:
         form = NoteForm()
         return render_template(
@@ -41,3 +41,12 @@ def create_note():
         )
 
 
+@app.route('/note/<int:id>/detail/')
+def note_detail(id):
+    note = Note.query.get(id)
+    return render_template(
+        'note_detail.html',
+        title='Note Detail',
+        year=datetime.now().year,
+        note =note
+    )

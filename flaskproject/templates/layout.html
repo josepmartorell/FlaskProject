@@ -5,6 +5,7 @@
     <!-- Required Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{{ title }} - Flask Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='flaskproject.css') }}" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
@@ -25,10 +26,10 @@
                     Menu
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="{{ url_for('create_note') }}">New Note</a></li>
-                    <li><a class="dropdown-item" href="#">Calendar</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('entry_point') }}">Index</a></li>
+                    <li><a class="dropdown-item" href="https://www.calendario-365.es/calendario-2021.html">Calendar</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Draft Editor</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('create_note') }}">Draft Editor</a></li>
                   </ul>
                 </li>
 
@@ -45,9 +46,9 @@
     <div class="container" style="padding-top: 170px">
     {% block content %}{% endblock %}
     </div>
-    <div class="container px-4 fixed-bottom">
+    <div class="container px-4">
       <footer>
-        <p>&copy; {{ year }} - My Flask Application</p>
+        <p style="padding-top: 170px">&copy; {{ year }} - My Flask Application</p>
       </footer>
     </div>
     <!-- JavaScript -->
