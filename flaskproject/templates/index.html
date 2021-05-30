@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
 <div class="container">
      {% if notes %}
       <div class="panel panel-default index__header">
@@ -29,7 +28,7 @@
               <h5>your notebook is empty. Click the create note button to create notes.</h5>
           </div>
     {% endif %}
-        <div class="index__new-note-button-wrapper" align="right" style="margin-top: 20px;">
+        <div class="index__new-note-button-wrapper button-separation" align="right">
             <a href="{{ url_for('create_note') }}"><button type="button" class="btn btn-secondary btn-sm">Create Note</button></a>
         </div>
          </div>

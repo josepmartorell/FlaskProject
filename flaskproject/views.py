@@ -50,3 +50,35 @@ def note_detail(id):
         year=datetime.now().year,
         note =note
     )
+
+
+@app.route('/note/<int:id>/edit/', methods=['GET', 'POST'])
+def edit_note(id):
+    if request.method == 'POST':
+        note = Note.query.get(id)
+        form = NoteForm(request.form)
+        if form.validate():
+            note.edit(form.subject.data, form.detail.data)
+            db.session.commit()
+            return redirect(url_for('entry_point'))
+    else:
+        note = Note.query.get(id)
+        form = NoteForm()
+        form.subject.data = note.subject
+        form.detail.data = note.detail
+
+        return render_template(
+            'edit_note.html',
+            title='Edit Note',
+            year=datetime.now().year,
+            form=form,
+            note_id=note.id,
+        )
+
+
+@app.route('/note/<int:id>/delete/')
+def delete_note(id):
+    note = Note.query.get(id)
+    note.delete()
+    db.session.commit()
+    return redirect(url_for('entry_point'))

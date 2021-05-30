@@ -3,7 +3,12 @@
    color: white;
 }
 
+.button-separation {
+    margin-top: 20px;
+}
 
+
+/* Index Page */
 .index__list-item-link {
     color: black;
 }
@@ -12,4 +17,3 @@
 .index__card-body {
     margin: 20px;
 }
-

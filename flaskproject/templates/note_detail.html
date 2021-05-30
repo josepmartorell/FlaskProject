@@ -1,38 +1,43 @@
+{% extends "layout.html" %}
+
 {% block content %}
+<div class="container">
+    <hr/>
 
     <div>
         {{note.subject}}
     </div>
+    <hr/>
 
-          <span class="note-detail__created-date-key">
-            Created On:
-          </span>
-          <span class="note-detail__created-date-value">
-            {{note.created_date}}
-          </span>
-          <span class="note-detail__modified-date-key">
-            Last Modified On:
-          </span>
-          <span class="note-detail__modified-date-value">
-            {{note.last_modified}}
-          </span>
+    <span class="note-detail__created-date-key">
+    Created On:
+    </span>
+    <span class="note-detail__created-date-value">
+    {{note.created_date}}
+    </span>
+    <span class="note-detail__modified-date-key">
+    Last Modified On:
+    </span>
+    <span class="note-detail__modified-date-value">
+    {{note.last_modified}}
+    </span>
 
-      <hr/>
-      <div>
-        {{note.detail}}
-      </div>
-
-          <a class="note-detail__button" href="{{ url_for('entry_point') }}">
+    <hr/>
+    <div>
+    {{note.detail}}
+    </div>
+    <div class="button-separation" align="right">
+          <a class="btn btn-secondary btn-sm" href="{{ url_for('entry_point') }}">
             Back to List
           </a>
   
-          <a class="note-detail__button" href="/note/{{note.id}}/edit/">
+          <a class="btn btn-secondary btn-sm" href="/note/{{note.id}}/edit/">
             Edit Note
           </a>
 
-          <a class="note-detail__button" href="/note/{{note.id}}/delete/">
+          <a class="btn btn-secondary btn-sm" href="/note/{{note.id}}/delete/">
             Delete Note
           </a>
-
-
+    </div>
+</div>
 {% endblock %}
