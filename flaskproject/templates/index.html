@@ -23,15 +23,15 @@
       </div>
 
      {% else %}
-     <div class="position-relative">
-          <div class="position-absolute bottom-0 start-0">
+        <div class="position-relative">
+            <div class="position-absolute bottom-0 start-0">
               <h5>your notebook is empty. Click the create note button to create notes.</h5>
-          </div>
+            </div>
+        </div>
     {% endif %}
         <div class="index__new-note-button-wrapper button-separation" align="right">
             <a href="{{ url_for('create_note') }}"><button type="button" class="btn btn-secondary btn-sm">Create Note</button></a>
         </div>
-         </div>
-    </div>
+
 </div>
 {% endblock %}
