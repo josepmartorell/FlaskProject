@@ -17,3 +17,8 @@
 .index__card-body {
     margin: 20px;
 }
+
+
+.note-detail__modified-date {
+    float: right;
+}
