@@ -8,23 +8,25 @@
         {{note.subject}}
     </div>
     <hr/>
-
-    <span class="note-detail__created-date-key">
-    Created On:
-    </span>
-    <span class="note-detail__created-date-value">
-    {{note.created_date}}
-    </span>
-    <span class="note-detail__modified-date-key">
-    Last Modified On:
-    </span>
-    <span class="note-detail__modified-date-value">
-    {{note.last_modified}}
-    </span>
-
-    <hr/>
-    <div>
-    {{note.detail}}
+    <div class="panel-body">
+        <div>
+            <span class="note-detail__created-date">
+            Created On:
+            </span>
+            <span class="note-detail__created-date">
+            {{note.created_date}}
+            </span>
+            <span class="note-detail__modified-date">
+            {{note.last_modified}}
+            </span>
+            <span class="note-detail__modified-date">
+            Last Modified On:&nbsp;
+            </span>
+        </div>
+        <hr/>
+        <div style="word-wrap: break-word;">
+        {{note.detail}}
+        </div>
     </div>
     <div class="button-separation" align="right">
           <a class="btn btn-secondary btn-sm" href="{{ url_for('entry_point') }}">
